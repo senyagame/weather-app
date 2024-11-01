@@ -6,7 +6,7 @@ import Page2 from './Page2';
 import Page3 from './Page3';
 import Page4 from './Page4';
 import './App.css';
-import WeatherMateimg from './Assets/WeatherMate-lmg.png';
+import WeatherMateimg from './Assets/WeatherMate-img.png';
 import icon from './Assets/Weather-icon.png';
 
 function App() {
