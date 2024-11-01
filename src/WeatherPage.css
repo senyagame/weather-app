@@ -1,0 +1,65 @@
+/* Секция текущей погоды */
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #4a90e2; /* Основной цвет для текущей погоды */
+    color: #fff; /* Белый цвет текста */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для выделения */
+    text-align: center;
+  }
+  
+  .current-weather h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  
+  .current-weather .temperature {
+    font-size: 2.5em; /* Крупный шрифт для температуры */
+    font-weight: bold;
+  }
+  
+  .current-weather .description {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-top: 5px;
+  }
+  
+  /* Секция прогноза на будущее */
+  .forecast-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .forecast-item {
+    flex: 1;
+    padding: 15px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .forecast-item h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #4a90e2; /* Цвет, связанный с текущей погодой */
+  }
+  
+  .forecast-item .forecast-temp {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .forecast-item .forecast-description {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
