@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Regions from './Regions'; // Пример страницы
+import Regions from './Regions';
 import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
