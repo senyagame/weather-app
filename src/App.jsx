@@ -5,8 +5,8 @@ import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
 import Page4 from './Page4';
-import WeatherMateimg from './Assets/WeatherMate-img.png';
 import icon from './Assets/Weather-icon.png';
+import WeatherMateimg from './assets/WeatherMate-img.png';
 import './App.css';
 
 function App() {
