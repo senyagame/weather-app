@@ -58,7 +58,7 @@ function App() {
               <Link to="/page1" className="modal-button" onClick={toggleModal}>Алматы</Link>
               <Link to="/page2" className="modal-button" onClick={toggleModal}>Чикаго</Link>
               <Link to="/page3" className="modal-button" onClick={toggleModal}>Астана</Link>
-              <Link to="/page4" className="modal-button" onClick={toggleModal}>Караганде</Link>
+              <Link to="/page4" className="modal-button" onClick={toggleModal}>Караганда</Link>
             </div>
           </div>
         )}
