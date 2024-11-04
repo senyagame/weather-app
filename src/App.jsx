@@ -13,11 +13,14 @@ function App() {
 
   // Перевод
   const weatherDescriptions = {
-    "broken clouds": "облачность с прояснениями",
-    "clear sky": "ясное небо",
-    "few clouds": "немного облаков",
+    "broken clouds": "облачно с прояснениями",
+    "clear sky": "ясно",
+    "few clouds": "небольшая облачность",
     "scattered clouds": "рассеянные облака",
     "light rain": "небольшой дождь",
+    "light snow": "небольшой снег",
+    "rain": "дождь",
+    "snow": "снег",
   };
 
   useEffect(() => {
@@ -33,7 +36,7 @@ function App() {
           setError('Не удалось загрузить данные. Проверьте подключение или API-ключ.');
         }
         setIsLoading(false);
-      }, 1000); // 2000 мс = 2 секунды
+      }, 500); // 2000 мс = 2 секунды
     };
 
     loadWeather();
