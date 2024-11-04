@@ -355,7 +355,7 @@ body.dark-theme {
   background-size: 21% 100%;
   animation: l7 1s infinite alternate;
 }
-/*@keyframes l7 {
+@keyframes l7 {
   0%,
   20%  {background-position: calc(0*100%/4) 0,calc(1*100%/4) 0,calc(2*100%/4) 0,calc(3*100%/4) 0}
   35%  {background-position: calc(0*100%/4) 0,calc(1*100%/4) 0,calc(2*100%/4) 0,calc(4*100%/4) 0}
@@ -363,32 +363,10 @@ body.dark-theme {
   65%  {background-position: calc(0*100%/4) 0,calc(2*100%/4) 0,calc(3*100%/4) 0,calc(4*100%/4) 0}
   80%,
   100% {background-position: calc(1*100%/4) 0,calc(2*100%/4) 0,calc(3*100%/4) 0,calc(4*100%/4) 0}
-} */
+}
 .loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;
-}
-
-/* HTML: <div class="loader"></div> */
-.loader {
-  width: 60px;
-  aspect-ratio: 1;
-  background: 
-    linear-gradient(45deg,#60B99A 50%,#0000 0),
-    linear-gradient(45deg,#0000 50%,#60B99A 0),
-    linear-gradient(-45deg,#f77825 50%,#0000 0),
-    linear-gradient(-45deg,#0000 50%,#f77825 0),
-    linear-gradient(#554236 0 0);
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  animation: l18 1.5s infinite;
-}
-@keyframes l18{
-  0%   {background-position:50% 50%,50% 50%,50%  50% ,50% 50%,50% 50%}
-  25%  {background-position:0  100%,100%  0,50%  50% ,50% 50%,50% 50%}
-  50%  {background-position:0  100%,100%  0,100% 100%,0   0  ,50% 50%}
-  75%  {background-position:50% 50%,50% 50%,100% 100%,0   0  ,50% 50%}
-  100% {background-position:50% 50%,50% 50%,50%  50% ,50% 50%,50% 50%}
 }
