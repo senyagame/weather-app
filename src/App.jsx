@@ -55,20 +55,22 @@ function App() {
             <div className="modal-content">
               <h2>Выберите регион</h2>
               <button onClick={toggleModal} className="close-modal">Закрыть</button>
-              <Link to="/page1" className="modal-button" onClick={toggleModal}>Алматы</Link>
-              <Link to="/page2" className="modal-button" onClick={toggleModal}>Чикаго</Link>
-              <Link to="/page3" className="modal-button" onClick={toggleModal}>Астана</Link>
-              <Link to="/page4" className="modal-button" onClick={toggleModal}>Караганда</Link>
+              <Link to="/pages/page1" className="modal-button" onClick={toggleModal}>Алматы</Link>
+              <Link to="/pages/page2" className="modal-button" onClick={toggleModal}>Чикаго</Link>
+              <Link to="/pages/page3" className="modal-button" onClick={toggleModal}>Астана</Link>
+              <Link to="/pages/page4" className="modal-button" onClick={toggleModal}>Караганда</Link>
+              <Link to="/pages/page5" className="modal-button" onClick={toggleModal}>Новосибирск</Link>
             </div>
           </div>
         )}
 
         <Routes>
           <Route path="/regions" element={<Regions />} />
-          <Route path="/page1" element={<Page1 />} />
-          <Route path="/page2" element={<Page2 />} />
-          <Route path="/page3" element={<Page3 />} />
-          <Route path="/page4" element={<Page4 />} />
+          <Route path="/pages/page1" element={<Page1 />} />
+          <Route path="/pages/page2" element={<Page2 />} />
+          <Route path="/pages/page3" element={<Page3 />} />
+          <Route path="/pages/page4" element={<Page4 />} />
+          <Route path="/pages/page5" element={<Page5 />} />
         </Routes>
       </div>
     </Router>
