@@ -1,4 +1,3 @@
-// src/Regions.jsx
 import React from 'react';
 
 function Regions() {
