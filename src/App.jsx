@@ -21,6 +21,7 @@ function App() {
     "light snow": "небольшой снег",
     "rain": "дождь",
     "snow": "снег",
+    "overcast clouds": "Облачно",
   };
 
   useEffect(() => {
