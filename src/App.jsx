@@ -11,14 +11,13 @@ function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Словарь для перевода описания погоды
+  // Перевод
   const weatherDescriptions = {
     "broken clouds": "облачность с прояснениями",
     "clear sky": "ясное небо",
     "few clouds": "немного облаков",
     "scattered clouds": "рассеянные облака",
     "light rain": "небольшой дождь",
-    // Добавьте другие переводы по необходимости
   };
 
   useEffect(() => {
@@ -26,7 +25,7 @@ function App() {
       setIsLoading(true);
       const data = await fetchWeather(city);
 
-      // Задержка перед завершением загрузки (2 секунды)
+      // Задержка загрузки
       setTimeout(() => {
         if (data) {
           setWeatherData(data);
@@ -34,7 +33,7 @@ function App() {
           setError('Не удалось загрузить данные. Проверьте подключение или API-ключ.');
         }
         setIsLoading(false);
-      }, 2000); // 2000 мс = 2 секунды
+      }, 1000); // 2000 мс = 2 секунды
     };
 
     loadWeather();
