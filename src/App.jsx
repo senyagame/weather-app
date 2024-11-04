@@ -89,6 +89,7 @@ function App() {
           <option value="Vladivostok">Владивосток</option>
           <option value="Moskow">Москва</option>
           <option value="New York">Нью Йорк</option>
+          <option value="Saint Petersburg">Санкт-Питербург</option>
         </select>
 
         {error ? (
