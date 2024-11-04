@@ -1,34 +1,44 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Regions from './Regions';
-import Page1 from './pages/Page1';
-import Page2 from './pages/Page2';
-import Page3 from './pages/Page3';
-import Page4 from './pages/Page4';
+import { fetchWeather } from './weatherService.js';
 import icon from './assets/Weather-icon.png';
 import WeatherMateimg from './assets/WeatherMate-img.png';
-import './App.css';
+import './styles/App.css';
 
 function App() {
+  const [weatherData, setWeatherData] = useState(null);
+  const [error, setError] = useState(null);
+  const [city, setCity] = useState('Almaty');
   const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-  };
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  useEffect(() => {
+    const loadWeather = async () => {
+      const data = await fetchWeather(city);
+      if (data) {
+        setWeatherData(data);
+      } else {
+        setError('Не удалось загрузить данные. Проверьте подключение или API-ключ.');
+      }
+    };
+    loadWeather();
+  }, [city]);
 
   useEffect(() => {
     document.body.classList.toggle('dark-theme', isDarkTheme);
     document.body.classList.toggle('light-theme', !isDarkTheme);
   }, [isDarkTheme]);
 
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
+
+  const handleCityChange = (event) => {
+    setCity(event.target.value);
+    setWeatherData(null);
+    setError(null);
+  };
+
   return (
-    <Router>
-      <div className={`App ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
+    <div className={`App ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <header className="header">
         <img src={icon} alt="WeatherMate" className="icon" />
         <h1>WeatherMate</h1>
@@ -37,43 +47,57 @@ function App() {
         </button>
       </header>
 
-        <section className="welcome">
-          <div className="welcome_text">
+      <section className="welcome">
+        <div className="welcome_text">
           <div className="welcome_img">
-              <img src={WeatherMateimg} alt="WeatherMate" className="enlarged-image" />
+            <img src={WeatherMateimg} alt="WeatherMate" className="enlarged-image" />
           </div>
-            <h1 className='welcome_h1'>Вас приветствует WeatherMate!</h1>
-            <p>Это приложение позволяет узнать прогноз погоды в доступных для просмотра городах.</p>
-            <button onClick={toggleModal} className="open-modal-button">
-              Выберите регион
-            </button>
-          </div>
-        </section>
+          <h1 className='welcome_h1'>Вас приветствует WeatherMate!</h1>
+          <p>Это приложение позволяет узнать прогноз погоды в доступных для просмотра городах.</p>
+        </div>
+      </section>
 
-        {isModalOpen && (
-          <div className="modal">
-            <div className="modal-content">
-              <h2>Выберите регион</h2>
-              <button onClick={toggleModal} className="close-modal">Закрыть</button>
-              <Link to="/pages/page1" className="modal-button" onClick={toggleModal}>Алматы</Link>
-              <Link to="/pages/page2" className="modal-button" onClick={toggleModal}>Чикаго</Link>
-              <Link to="/pages/page3" className="modal-button" onClick={toggleModal}>Астана</Link>
-              <Link to="/pages/page4" className="modal-button" onClick={toggleModal}>Караганда</Link>
-              <Link to="/pages/page5" className="modal-button" onClick={toggleModal}>Новосибирск</Link>
+      <div className="weather-page">
+        <h2 className="page-title">Погода в {city}</h2>
+        <select value={city} onChange={handleCityChange} className="city-select">
+          <option value="Almaty">Алматы</option>
+          <option value="Chicago">Чикаго</option>
+          <option value="Astana">Астана</option>
+          <option value="Karaganda">Караганда</option>
+          <option value="Novosibirsk">Новосибирск</option>
+        </select>
+
+        {error ? (
+          <p className="error">{error}</p>
+        ) : weatherData ? (
+          <div>
+            <div className="current-weather">
+              <h3>Текущая погода</h3>
+              <p className="temperature">
+                Температура: {weatherData.list[0].main.temp}°C
+              </p>
+              <p className="description">
+                {weatherData.list[0].weather[0].description}
+              </p>
+            </div>
+
+            <div className="forecast">
+              <h3>Прогноз на следующие 4 дня</h3>
+              <ul className="forecast-list">
+                {weatherData.list.slice(1, 5).map((forecast, index) => (
+                  <li key={index} className="forecast-item">
+                    <span className="forecast-date">{forecast.dt_txt}</span>
+                    <span className="forecast-temp">{forecast.main.temp}°C</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+        ) : (
+          <p>Загрузка данных...</p>
         )}
-
-        <Routes>
-          <Route path="/regions" element={<Regions />} />
-          <Route path="/pages/page1" element={<Page1 />} />
-          <Route path="/pages/page2" element={<Page2 />} />
-          <Route path="/pages/page3" element={<Page3 />} />
-          <Route path="/pages/page4" element={<Page4 />} />
-          <Route path="/pages/page5" element={<Page5 />} />
-        </Routes>
       </div>
-    </Router>
+    </div>
   );
 }
 
