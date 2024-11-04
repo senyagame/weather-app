@@ -82,13 +82,13 @@ function App() {
         <h2 className="page-title">Погода в {city}</h2>
         <select value={city} onChange={handleCityChange} className="city-select">
           <option value="Almaty">Алматы</option>
-          <option value="New York">Нью Йорк</option>
           <option value="Astana">Астана</option>
           <option value="Karaganda">Караганда</option>
           <option value="Novosibirsk">Новосибирск</option>
           <option value="Khabarovsk">Хабаровск</option>
           <option value="Vladivostok">Владивосток</option>
           <option value="Moskow">Москва</option>
+          <option value="New York">Нью Йорк</option>
         </select>
 
         {error ? (
