@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchWeather } from './weatherService';
-import './App.css';
+import './styles/App.css';
 
 function Page1() {
   const [weatherData, setWeatherData] = useState(null);
