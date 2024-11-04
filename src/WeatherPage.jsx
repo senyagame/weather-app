@@ -1,5 +1,5 @@
 import React from 'react';
-import './WeatherPage.css';
+import './styles/WeatherPage.css';
 
 function WeatherPage({ currentWeather, forecast }) {
   return (
